@@ -1,0 +1,29 @@
+//
+//  main.c
+//  pat-yi-1003
+//
+//  Created by 陈莉莉 on 2017/9/12.
+//  Copyright © 2017年 陈莉莉. All rights reserved.
+//
+
+#include <stdio.h>
+
+int main(int argc, const char * argv[]) {
+    int N = 0,i = 0,j = 0;
+//    scanf("%d",&N);
+    char a[2][10];//10 changed
+    for(i = 0;i < 2;i++){
+        scanf("%s",a[i]);
+    }
+    for(i = 0;i < 2;i++){
+        for(j = 0;j < 10;j++){
+            if(a[i][j] == 'P' && a[i][j] == 'A' && a[i][j] == 'T'){
+                printf("YES\n");
+            }else{
+                printf("NO\n");
+                break;
+            }
+        }
+    }
+    return 0;
+}
