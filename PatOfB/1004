@@ -1,0 +1,46 @@
+//
+//  main.c
+//  pat-yi-1004
+//
+//  Created by 陈莉莉 on 2017/8/31.
+//  Copyright © 2017年 陈莉莉. All rights reserved.
+//
+
+#include <stdio.h>
+
+struct Students{
+    char name[11];
+    char id[11];
+    int score;
+};
+
+int main(int argc, const char * argv[]) {
+    int N = 0,i = 0;
+    int max = 0,min = 0;
+    int minId = 0,maxId = 0;
+    scanf("%d",&N);
+    struct Students s[N];
+    for(i = 0;i < N;i++){
+        scanf("%s",s[i].name);
+        scanf("%s",s[i].id);
+        scanf("%d",&s[i].score);
+    }
+    min = s[i].score;
+    for(i = 0;i < N;i++){
+        if(s[i].score <= min){
+            min = s[i].score;
+            minId = i;
+        }
+    }
+    i = 0;
+    max = s[i].score;
+    for(i = 0;i < N;i++){
+        if(s[i].score >= max){
+            max = s[i].score;
+            maxId = i;
+        }
+    }
+    printf("%s %s\n",s[maxId].name,s[maxId].id);
+    printf("%s %s\n",s[minId].name,s[minId].id);
+    return 0;
+}
