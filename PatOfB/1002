@@ -1,0 +1,81 @@
+//
+//  main.c
+//  pat-yi-1002
+//
+//  Created by 陈莉莉 on 2017/8/5.
+//  Copyright © 2017年 陈莉莉. All rights reserved.
+//
+
+#include <stdio.h>
+#define N 1001
+
+
+int main(int argc, const char * argv[]) {
+    int a[N] = {0};
+    char c;
+    int i = 0, sum = 0,n = 0;
+    
+    //initial the array
+    
+    
+    //input the num
+    do{
+        scanf("%c",&c);
+        if(c == '\n'){
+            break;
+        }
+        else{
+            a[i] = c - '0'; //change the string to the num
+            i++;
+        }
+    }while(i < N);
+    //ensure the n that if it is the 0
+    for(i = N - 1;i >= 0;i--){
+        if(a[i] != 0){
+            n = i;
+            break;
+        }
+    }
+    //do sum
+    for(i = 0;i < n + 1;i++){
+        sum = sum + a[i];
+    }
+    //divide
+    int s = 0,b = 1;
+    s = sum;
+    while(s > 9){
+        b = b * 10;
+        s = s / 10;
+    }
+    
+    while(b > 0){
+        switch(sum / b){
+            case 0:
+                printf("ling");break;
+            case 1:
+                printf("yi");break;
+            case 2:
+                printf("er");break;
+            case 3:
+                printf("san");break;
+            case 4:
+                printf("si");break;
+            case 5:
+                printf("wu");break;
+            case 6:
+                printf("liu");break;
+            case 7:
+                printf("qi");break;
+            case 8:
+                printf("ba");break;
+            case 9:
+                printf("jiu");break;
+        }
+        if(b > 1){
+            printf(" ");
+        }
+        sum = sum % b;
+        b = b / 10;
+    }
+    return 0;
+}
