@@ -1,0 +1,47 @@
+//
+//  main.c
+//  pat-yi-1006
+//
+//  Created by 陈莉莉 on 2017/8/31.
+//  Copyright © 2017年 陈莉莉. All rights reserved.
+//
+
+#include <stdio.h>
+
+int main(int argc, const char * argv[]) {
+    int N = 0,n = 0,s = 1,cnt = 1,i = 0,j = 0;
+    scanf("%d",&N);
+    n = N;
+    while(n > 9){
+        s = s * 10;
+        n = n / 10;
+        cnt++;
+    }
+    int a[cnt];
+    for(i = cnt-1;i >= 0;i--){
+        a[i] = N / s;
+        N = N % s;
+        s = s / 10;
+    }
+    
+    for(i = cnt;i > 0;i--){
+        switch (i) {
+            case 3:
+                for(j = 0;j < a[i-1];j++){
+                    printf("B");
+                }
+                break;
+            case 2:
+                for(j = 0;j < a[i-1];j++){
+                    printf("S");
+                }
+                break;
+            case 1:
+                for(j = 1;j <= a[i-1];j++){
+                    printf("%d",j);
+                }
+                break;
+        }
+    }
+    return 0;
+}
